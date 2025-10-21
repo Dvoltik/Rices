@@ -1,0 +1,122 @@
+/*******************************************************************************
+ * ROFI Color theme
+ * User: Dominik Wolters
+ * Copyright: Dominik Wolters
+ *******************************************************************************/
+
+* {
+    text:                       rgba ( 255, 255, 255, 100 % );  /*Text of the applications*/
+    foreground:                 rgba ( 255, 255, 255, 100 % );  /*Bordercolor and 'drun' text color*/
+    background:                 rgba ( 255, 255, 255, 2 % );    /*Background of the window*/
+    normal-background:          rgba ( 140, 140, 140, 2 % );    /*Color of the listed Elements*/
+    selected-normal-background: rgba ( 180, 180, 180, 10 % );   /*Color of the 'hovered' Element*/
+    spacer:                     5px;                            /*Space between listed elements*/
+    element-radius:             10px;                           /*Border radiusof the listet elements*/
+    elemet-padding:             1em;                            /*padding of the listed elements*/
+}
+window {
+    background-color: @background;
+    width: 400px;
+    height: 200px;
+    border:           0;
+    padding:          5;
+    font: "mono 18";
+}
+mainbox {
+    border:  0;
+    padding: 0;
+}
+message {
+    border:       5px 0px 0px ;
+    padding:      10px ;
+}
+textbox { /*Text of the applications*/
+    margin: 10px;
+    text-color: @text;
+}
+listview {
+    fixed-height: 0;
+    border:       0px 0px 0px ;
+    spacing:      @spacer;
+    scrollbar:    false;
+    
+    padding:      0px 0px 0px ;
+}
+element {
+    border:  0;
+    padding: 0px;
+}
+element-text { /*box in which applications are displayed*/
+    background-color: inherit;
+    border-radius: @element-radius;
+    text-color:       @text;
+    padding: 0px 0px 0px 5px;
+    /*Up|Right|Down|Left */
+}
+element.normal.normal {
+    horizontal-allign: 0.5;
+    padding: @elemet-padding;
+    border-radius: @element-radius; 
+    background-color: @normal-background;
+    text-color:       @normal-foreground;
+}
+element.selected.normal {
+    horizontal-align: 0.5;
+    padding: @elemet-padding;
+    border-radius: @element-radius; 
+    background-color: @selected-normal-background;
+    text-color:       @selected-normal-foreground;
+}
+element.selected.active {
+    horizontal-align: 0.5;
+    background-color: @selected-active-background;
+    text-color:       @selected-active-foreground;
+}
+element.alternate.normal {
+    horizontal-align: 0.5;
+    padding: @elemet-padding;
+    border-radius: @element-radius; 
+    background-color: @normal-background;
+    text-color:       @normal-foreground;
+}
+element.alternate.active {
+    horizontal-align: 0.5;
+    padding: @elemet-padding;
+    border-radius: @element-radius; 
+    background-color: @normal-background;
+    text-color:       @normal-background;
+}
+mode-switcher {
+    border:       2px 0px 0px ;
+    border-color: @separatorcolor;
+}
+button.selected {
+    background-color: @selected-normal-background;
+    text-color:       @selected-normal-foreground;
+}
+inputbar {
+    spacing:    @spacer;
+    text-color: @normal-foreground;
+    padding:    1px ;
+}
+case-indicator {
+    spacing:    @spacer;
+    text-color: @normal-foreground;
+}
+entry {
+    spacing:    @spacer;
+    text-color: @normal-foreground;
+}
+prompt {
+    spacing:    @spacer;
+    text-color: @normal-foreground;
+}
+inputbar {
+    children:   [ prompt,textbox-prompt-colon,entry,case-indicator ];
+}
+textbox-prompt-colon {
+    expand:     false;
+    str:        ":";
+    margin:     0px 0.3em 0em 0em ;
+    text-color: @normal-foreground;
+}
